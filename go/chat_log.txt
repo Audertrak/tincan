@@ -1,0 +1,5 @@
+[2025-05-18 14:16:41] System: tcunkle has joined the chat.
+[2025-05-18 14:16:55] tcunkle: Hello from client
+[2025-05-18 14:33:17] System: tcunkle has left the chat.
+[2025-05-18 15:16:37] System: tcunkle has joined the chat.
+[2025-05-18 15:16:41] tcunkle: Hello

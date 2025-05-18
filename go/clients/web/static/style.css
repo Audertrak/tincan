@@ -1,0 +1,60 @@
+/* tincan/web/static/style.css */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+#status {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+
+#chatbox {
+    width: 90%;
+    min-height: 300px; /* Min height for textarea */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    white-space: pre-wrap; /* Important for newlines in textarea */
+    overflow-y: auto;
+}
+
+#usernamePrompt, #chatInterface {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#connectButton {
+    background-color: #007bff;
+}
+#connectButton:hover {
+    background-color: #0056b3;
+}

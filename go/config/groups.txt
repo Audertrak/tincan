@@ -1,0 +1,4 @@
+admin:tcunkle,lmcunkle,lport,jport
+cunkles:tcunkle,lmcunkle
+ports:lport,jport,samjopo
+minecraft:tcunkle,lport,jport,samjopo

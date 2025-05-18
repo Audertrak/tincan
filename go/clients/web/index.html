@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tincan Web Client</title>
+  <link rel="stylesheet" href="static/style.css">
+  <!-- WebAssembly Bridge -->
+  <script src="wasm_exec.js"></script>
+  <script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("tincan.wasm"), go.importObject).then((result) => {
+      go.run(result.instance);
+      console.log("WASM Loaded and Run");
+    }).catch(err => {
+      console.error("WASM Loading Error:", err);
+      document.getElementById("status").textContent = "Error loading Tincan client: " + err;
+    });
+
+    function handleMessageInput(event) {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Prevent newline in input
+        if (typeof tincanSendMessage === "function") {
+          tincanSendMessage();
+        } else {
+          console.error("tincanSendMessage is not defined yet.");
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Tincan Web Client</h1>
+  <div id="status">Loading Tincan WASM...</div>
+
+  <button id="connectButton" onclick="tincanConnect()">Connect to Server</button>
+
+  <div id="usernamePrompt" style="display: none;">
+    <input type="text" id="usernameInput" placeholder="Enter username">
+    <button onclick="tincanSubmitUsername()">Submit Username</button>
+  </div>
+
+  <div id="chatInterface" style="display: none;">
+    <textarea id="chatbox" rows="20" cols="80" readonly></textarea>
+    <br>
+    <input type="text" id="messageInput" size="70" placeholder="Type message or /command"
+      onkeydown="handleMessageInput(event)">
+    <button onclick="tincanSendMessage()">Send</button>
+  </div>
+
+</body>
+
+</html>
